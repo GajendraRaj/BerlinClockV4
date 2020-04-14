@@ -1,6 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import Clock from "../component/Clock";
+import Constants from "../constant";
 
 describe("Clock component", () => {
   let wrapper;
@@ -10,6 +11,6 @@ describe("Clock component", () => {
   });
 
   it("should have the application title", () => {
-    expect(wrapper.find("h1").text()).toEqual("The Berlin Clock");
+    expect(wrapper.find("h1").text()).toEqual(Constants.APP_TITLE);
   });
 });
