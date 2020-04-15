@@ -1,6 +1,7 @@
 import React from "react";
 import Seconds from "./seconds";
 import PropTypes from "prop-types";
+import Constants from "../../constant";
 
 const BerlinClock = (props) => {
   const [hours, minutes, seconds] = props.time
@@ -8,7 +9,7 @@ const BerlinClock = (props) => {
     .map((time) => parseInt(time));
 
   const getSeconds = (second) => {
-    const secondColor = isEvenSecond(second) ? "Y" : "";
+    const secondColor = isEvenSecond(second) ? Constants.EVEN_SECOND : "";
     return secondColor;
   };
 

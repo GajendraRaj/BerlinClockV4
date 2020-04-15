@@ -1,10 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Constants from "../../../constant";
 
 const Seconds = (props) => {
-  const secondsColor = props.seconds === "Y" ? "bg-yellow" : "";
+  const secondsColor =
+    props.seconds === Constants.EVEN_SECOND ? Constants.ACTIVE_STYLE_CLASS : "";
 
-  return <div className={`seconds ${secondsColor}`}></div>;
+  return (
+    <div className={`${Constants.SECONDS_STYLE_CLASS} ${secondsColor}`}></div>
+  );
 };
 
 Seconds.propTypes = {
