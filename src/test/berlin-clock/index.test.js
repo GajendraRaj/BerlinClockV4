@@ -19,6 +19,10 @@ describe("Berlin Clock component", () => {
     expect(wrapper.find("Seconds").length).toEqual(1);
   });
 
+  it("should render the hours component", () => {
+    expect(wrapper.find("Hours").length).toEqual(1);
+  });
+
   it("should throw error message if there is no time prop", () => {
     const errorMsg =
       "Failed prop type: The prop `time` is marked as required in `<<anonymous>>`, but its value is `undefined`.";
