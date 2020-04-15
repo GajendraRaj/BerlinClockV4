@@ -83,4 +83,10 @@ describe("Five Hours Row functionality", () => {
     const hoursWrapper = wrapper.find(Hours);
     expect(hoursWrapper.props().hours[0]).toEqual("OOOO");
   });
+
+  it("should return RRRR for '23' hour", () => {
+    const wrapper = shallow(<BerlinClock time={"23:59:59"} />);
+    const hoursWrapper = wrapper.find(Hours);
+    expect(hoursWrapper.props().hours[0]).toEqual("RRRR");
+  });
 });

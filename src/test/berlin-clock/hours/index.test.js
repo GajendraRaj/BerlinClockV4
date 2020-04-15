@@ -2,6 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import Hours from "../../../component/berlin-clock/hours";
 import checkPropTypes from "check-prop-types";
+import Constants from "../../../constant";
 
 describe("Hours componenet", () => {
   let wrapper;
@@ -36,7 +37,12 @@ describe("Five Hours Row", () => {
     wrapper = shallow(<Hours hours={["OOOO"]} />);
   });
 
-  it("should return 'OOOO' for '00' hour", () => {
+  it("should return 4 silver lamps ('OOOO') for '00' hour", () => {
     expect(wrapper.find(".bg-silver")).toHaveLength(4);
+  });
+
+  it("should return 4 red lamps ('RRRR') for '23' hour", () => {
+    const wrapper = shallow(<Hours hours={["RRRR"]} />);
+    expect(wrapper.find(".bg-red")).toHaveLength(4);
   });
 });
