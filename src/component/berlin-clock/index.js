@@ -22,15 +22,21 @@ const BerlinClock = (props) => {
   };
 
   const getHours = (hours) => {
-    const upperRowColors = getUpperRowHoursColors(hours);
-    const hoursColors = [upperRowColors];
+    const fiveRowColors = getFiveHoursRowColors(hours);
+    const hoursColors = [fiveRowColors];
 
     return hoursColors;
   };
 
-  const getUpperRowHoursColors = (hours) => {
+  const getFiveHoursRowColors = (hours) => {
     const upperRowColors =
-      "R".repeat(hours / 5) + "O".repeat(4 - parseInt(hours / 5));
+      Constants.ACTIVE_HOURS_COLOR.repeat(
+        hours / Constants.FIVE_HOURS_ROW_BLOCK_VALUE
+      ) +
+      Constants.OFF_COLOR.repeat(
+        Constants.RED_LAMPS_COUNT -
+          parseInt(hours / Constants.FIVE_HOURS_ROW_BLOCK_VALUE)
+      );
 
     return upperRowColors;
   };
