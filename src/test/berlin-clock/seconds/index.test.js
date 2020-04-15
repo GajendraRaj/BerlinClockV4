@@ -14,8 +14,13 @@ describe("Seconds component", () => {
     expect(wrapper.find("div").length).toEqual(1);
   });
 
-  it("should top lamp illuminated on with even second value", () => {
+  it("should illuminated top lamp as on with even second value", () => {
     expect(wrapper.find(".bg-yellow")).toHaveLength(1);
+  });
+
+  it("should illuminated top lamp as off with odd second value", () => {
+    const wrapper = shallow(<Seconds seconds={"O"} />);
+    expect(wrapper.find(".bg-silver")).toHaveLength(1);
   });
 
   it("Should throw error message if there is no seconds prop", () => {
