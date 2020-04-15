@@ -2,6 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import BerlinClock from "../../component/berlin-clock";
 import Seconds from "../../component/berlin-clock/seconds";
+import Minutes from "../../component/berlin-clock/minutes";
 import Hours from "../../component/berlin-clock/hours";
 import checkPropTypes from "check-prop-types";
 
@@ -135,5 +136,18 @@ describe("Single Hours Row functionality", () => {
     const wrapper = shallow(<BerlinClock time={"14:35:00"} />);
     const hoursWrapper = wrapper.find(Hours);
     expect(hoursWrapper.props().hours[1]).toEqual("RRRR");
+  });
+});
+
+describe("Five Minutes Row functionality", () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<BerlinClock time={"00:00:00"} />);
+  });
+
+  it("should return OOOOOOOOOOO for '00' minutes", () => {
+    const minutesWrapper = wrapper.find(Minutes);
+    expect(minutesWrapper.props().minutes[0]).toEqual("OOOOOOOOOOO");
   });
 });

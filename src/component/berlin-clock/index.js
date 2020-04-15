@@ -56,11 +56,38 @@ const BerlinClock = (props) => {
     return lowerRowColors;
   };
 
+  const getMinutes = (minutes) => {
+    const fiveMinutesRow = getFiveMinutesRow(minutes);
+    const minutesColors = [fiveMinutesRow];
+
+    return minutesColors;
+  };
+
+  const getFiveMinutesRow = (minutes) => {
+    const minutesDevideBy5 = Math.floor(minutes / 5);
+    const fiveMinutesRow =
+      getActiveFiveMinutes(minutesDevideBy5) +
+      "O".repeat(11 - parseInt(minutes / 5));
+    return fiveMinutesRow;
+  };
+
+  const getActiveFiveMinutes = (minutes) => {
+    let activeLampColor = "";
+    for (let lampIndex = 1; lampIndex <= minutes; lampIndex++) {
+      if (lampIndex % 3 === 0) {
+        activeLampColor += "R";
+      } else {
+        activeLampColor += "Y";
+      }
+    }
+    return activeLampColor;
+  };
+
   return (
     <div className="clock mv4">
       <Seconds seconds={getSeconds(seconds)} />
       <Hours hours={getHours(hours)} />
-      <Minutes />
+      <Minutes minutes={getMinutes(minutes)} />
     </div>
   );
 };
