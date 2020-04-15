@@ -23,7 +23,7 @@ describe("Seconds component", () => {
     expect(wrapper.find(".bg-silver")).toHaveLength(1);
   });
 
-  it("Should throw error message if there is no seconds prop", () => {
+  it("should throw error message if there is no seconds prop", () => {
     const errorMsg =
       "Failed prop type: The prop `seconds` is marked as required in `<<anonymous>>`, but its value is `undefined`.";
 
@@ -37,7 +37,7 @@ describe("Seconds component", () => {
     expect(result).toEqual(errorMsg);
   });
 
-  it("Should throw error message if seconds prop type is not a string", () => {
+  it("should throw error message if seconds prop type is not a string", () => {
     const errorMsg =
       "Failed prop type: Invalid prop `seconds` of type `number` supplied to `<<anonymous>>`, expected `string`.";
 

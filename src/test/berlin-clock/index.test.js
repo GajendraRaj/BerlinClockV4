@@ -19,7 +19,7 @@ describe("Berlin Clock component", () => {
     expect(wrapper.find("Seconds").length).toEqual(1);
   });
 
-  it("Should throw error message if there is no time prop", () => {
+  it("should throw error message if there is no time prop", () => {
     const errorMsg =
       "Failed prop type: The prop `time` is marked as required in `<<anonymous>>`, but its value is `undefined`.";
 
@@ -33,7 +33,7 @@ describe("Berlin Clock component", () => {
     expect(result).toEqual(errorMsg);
   });
 
-  it("Should throw error message if time prop type is not a string", () => {
+  it("should throw error message if time prop type is not a string", () => {
     const errorMsg =
       "Failed prop type: Invalid prop `time` of type `number` supplied to `<<anonymous>>`, expected `string`.";
 

@@ -9,7 +9,9 @@ const BerlinClock = (props) => {
     .map((time) => parseInt(time));
 
   const getSeconds = (second) => {
-    const secondColor = isEvenSecond(second) ? Constants.EVEN_SECOND : "O";
+    const secondColor = isEvenSecond(second)
+      ? Constants.EVEN_SECOND
+      : Constants.ODD_SECOND;
     return secondColor;
   };
 
