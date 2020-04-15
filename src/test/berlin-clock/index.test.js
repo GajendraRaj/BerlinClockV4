@@ -2,6 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import BerlinClock from "../../component/berlin-clock";
 import Seconds from "../../component/berlin-clock/seconds";
+import Hours from "../../component/berlin-clock/hours";
 import checkPropTypes from "check-prop-types";
 
 describe("Berlin Clock component", () => {
@@ -68,5 +69,18 @@ describe("Seconds Lamp functionality", () => {
     const wrapper = shallow(<BerlinClock time={"23:59:59"} />);
     const secondsWrapper = wrapper.find(Seconds);
     expect(secondsWrapper.props().seconds).toEqual("O");
+  });
+});
+
+describe("Five Hours Row functionality", () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<BerlinClock time={"00:00:00"} />);
+  });
+
+  it("should pass OOOO for '00' hour", () => {
+    const hoursWrapper = wrapper.find(Hours);
+    expect(hoursWrapper.props().hours[0]).toEqual("OOOO");
   });
 });

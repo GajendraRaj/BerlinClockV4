@@ -29,3 +29,22 @@
 .bg-silver {
   background-color: #999999;
 }
+
+.hours {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 16rem;
+}
+
+.hours-rows {
+  height: 4rem;
+  border-style: solid;
+  border-width: 1px;
+  padding: 0.5rem;
+}
+
+.bg-red {
+  background-color: #ff4136;
+}
