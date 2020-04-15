@@ -102,3 +102,16 @@ describe("Five Hours Row functionality", () => {
     expect(hoursWrapper.props().hours[0]).toEqual("RRRO");
   });
 });
+
+describe("Single Hours Row functionality", () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<BerlinClock time={"00:00:00"} />);
+  });
+
+  it("should pass OOOO for '00' hour", () => {
+    const hoursWrapper = wrapper.find(Hours);
+    expect(hoursWrapper.props().hours[1]).toEqual("OOOO");
+  });
+});

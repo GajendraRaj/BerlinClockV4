@@ -12,7 +12,7 @@ describe("Hours componenet", () => {
   });
 
   it("should render a div", () => {
-    expect(wrapper.find("div").length).toEqual(5);
+    expect(wrapper.find("div").length).toEqual(6);
   });
 
   it("should throw error message if there is no hours prop", () => {
@@ -44,5 +44,17 @@ describe("Five Hours Row", () => {
   it("should return 4 red lamps ('RRRR') for '23' hour", () => {
     const wrapper = shallow(<Hours hours={["RRRR"]} />);
     expect(wrapper.find(".bg-red")).toHaveLength(4);
+  });
+});
+
+describe("Single Hours Row", () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<Hours hours={["OOOO", "OOOO"]} />);
+  });
+
+  it("should return 8 red lamps for '00' hour", () => {
+    expect(wrapper.find(".bg-silver")).toHaveLength(8);
   });
 });
