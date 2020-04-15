@@ -2,9 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Seconds = (props) => {
-  return <div></div>;
+  const secondsColor = props.seconds === "Y" ? "bg-yellow" : "";
+
+  return <div className={`seconds ${secondsColor}`}></div>;
 };
 
-Seconds.propTypes = {};
+Seconds.propTypes = {
+  seconds: PropTypes.string.isRequired,
+};
 
 export default Seconds;
