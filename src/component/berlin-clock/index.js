@@ -1,6 +1,7 @@
 import React from "react";
 import Seconds from "./seconds";
 import Hours from "./hours";
+import Minutes from "./minutes";
 import PropTypes from "prop-types";
 import Constants from "../../constant";
 
@@ -59,6 +60,7 @@ const BerlinClock = (props) => {
     <div className="clock mv4">
       <Seconds seconds={getSeconds(seconds)} />
       <Hours hours={getHours(hours)} />
+      <Minutes />
     </div>
   );
 };
