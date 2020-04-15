@@ -120,4 +120,10 @@ describe("Single Hours Row functionality", () => {
     const hoursWrapper = wrapper.find(Hours);
     expect(hoursWrapper.props().hours[1]).toEqual("RRRO");
   });
+
+  it("should return RROO for '02' hour", () => {
+    const wrapper = shallow(<BerlinClock time={"02:04:00"} />);
+    const hoursWrapper = wrapper.find(Hours);
+    expect(hoursWrapper.props().hours[1]).toEqual("RROO");
+  });
 });
