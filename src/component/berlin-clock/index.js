@@ -32,12 +32,9 @@ const BerlinClock = (props) => {
 
   const getFiveHoursRowColors = (hours) => {
     const upperRowColors =
-      Constants.ACTIVE_HOURS_COLOR.repeat(
-        hours / Constants.FIVE_HOURS_ROW_BLOCK_VALUE
-      ) +
+      Constants.ACTIVE_COLOR.repeat(hours / Constants.FIVE_BLOCK) +
       Constants.OFF_COLOR.repeat(
-        Constants.RED_LAMPS_COUNT -
-          parseInt(hours / Constants.FIVE_HOURS_ROW_BLOCK_VALUE)
+        Constants.FOUR_LAMPS - parseInt(hours / Constants.FIVE_BLOCK)
       );
 
     return upperRowColors;
@@ -45,12 +42,9 @@ const BerlinClock = (props) => {
 
   const getSingleHoursRowColors = (hours) => {
     const lowerRowColors =
-      Constants.ACTIVE_HOURS_COLOR.repeat(
-        hours % Constants.FIVE_HOURS_ROW_BLOCK_VALUE
-      ) +
+      Constants.ACTIVE_COLOR.repeat(hours % Constants.FIVE_BLOCK) +
       Constants.OFF_COLOR.repeat(
-        Constants.RED_LAMPS_COUNT -
-          (hours % Constants.FIVE_HOURS_ROW_BLOCK_VALUE)
+        Constants.FOUR_LAMPS - (hours % Constants.FIVE_BLOCK)
       );
 
     return lowerRowColors;
@@ -64,20 +58,22 @@ const BerlinClock = (props) => {
   };
 
   const getFiveMinutesRow = (minutes) => {
-    const minutesDevideBy5 = Math.floor(minutes / 5);
+    const minutesDevideBy5 = Math.floor(minutes / Constants.FIVE_BLOCK);
     const fiveMinutesRow =
       getActiveFiveMinutes(minutesDevideBy5) +
-      "O".repeat(11 - parseInt(minutes / 5));
+      Constants.OFF_COLOR.repeat(
+        Constants.ELEVEN_LAMP - parseInt(minutes / Constants.FIVE_BLOCK)
+      );
     return fiveMinutesRow;
   };
 
   const getActiveFiveMinutes = (minutes) => {
     let activeLampColor = "";
     for (let lampIndex = 1; lampIndex <= minutes; lampIndex++) {
-      if (lampIndex % 3 === 0) {
-        activeLampColor += "R";
+      if (lampIndex % Constants.THIRD_LAMP === 0) {
+        activeLampColor += Constants.ACTIVE_COLOR;
       } else {
-        activeLampColor += "Y";
+        activeLampColor += Constants.ACTIVE_YELLOW_COLOR;
       }
     }
     return activeLampColor;

@@ -4,7 +4,7 @@ import Constants from "../../../../constant";
 
 const Hour = (props) => {
   const hourColor = (hour) =>
-    hour === Constants.ACTIVE_HOURS_COLOR
+    hour === Constants.ACTIVE_COLOR
       ? Constants.RED_STYLE_CLASS
       : Constants.OFF_STYLE_CLASS;
 
