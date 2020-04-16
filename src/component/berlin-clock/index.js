@@ -52,7 +52,8 @@ const BerlinClock = (props) => {
 
   const getMinutes = (minutes) => {
     const fiveMinutesRow = getFiveMinutesRow(minutes);
-    const minutesColors = [fiveMinutesRow];
+    const singleMinutesRow = getSingleMinutesRow(minutes);
+    const minutesColors = [fiveMinutesRow, singleMinutesRow];
 
     return minutesColors;
   };
@@ -65,6 +66,13 @@ const BerlinClock = (props) => {
         Constants.ELEVEN_LAMP - parseInt(minutes / Constants.FIVE_BLOCK)
       );
     return fiveMinutesRow;
+  };
+
+  const getSingleMinutesRow = (minutes) => {
+    const lowerRowColors =
+      "Y".repeat(minutes % 5) + "O".repeat(4 - parseInt(minutes % 5));
+
+    return lowerRowColors;
   };
 
   const getActiveFiveMinutes = (minutes) => {

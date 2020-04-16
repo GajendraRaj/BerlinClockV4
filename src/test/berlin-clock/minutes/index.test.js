@@ -7,11 +7,11 @@ describe("Minutes component", () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Minutes minutes={["OOOOOOOOOOO"]} />);
+    wrapper = shallow(<Minutes minutes={["OOOOOOOOOOO", "OOOO"]} />);
   });
 
   it("should render a div", () => {
-    expect(wrapper.find("div").length).toEqual(12);
+    expect(wrapper.find("div").length).toEqual(18);
   });
 
   it("Should throw error message if there is no minutes prop", () => {
