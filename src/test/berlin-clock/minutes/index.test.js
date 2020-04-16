@@ -11,7 +11,11 @@ describe("Minutes component", () => {
   });
 
   it("should render a div", () => {
-    expect(wrapper.find("div").length).toEqual(18);
+    expect(wrapper.find("div").length).toEqual(3);
+  });
+
+  it("Should render 15 Minute components for minutes row", () => {
+    expect(wrapper.find("Minute")).toHaveLength(15);
   });
 
   it("Should throw error message if there is no minutes prop", () => {
