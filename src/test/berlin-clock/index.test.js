@@ -150,4 +150,10 @@ describe("Five Minutes Row functionality", () => {
     const minutesWrapper = wrapper.find(Minutes);
     expect(minutesWrapper.props().minutes[0]).toEqual("OOOOOOOOOOO");
   });
+
+  it("should return YYRYYRYYRYY for '59' minutes", () => {
+    const wrapper = shallow(<BerlinClock time={"23:59:59"} />);
+    const minutesWrapper = wrapper.find(Minutes);
+    expect(minutesWrapper.props().minutes[0]).toEqual("YYRYYRYYRYY");
+  });
 });
