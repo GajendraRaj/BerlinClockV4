@@ -70,7 +70,10 @@ const BerlinClock = (props) => {
 
   const getSingleMinutesRow = (minutes) => {
     const lowerRowColors =
-      "Y".repeat(minutes % 5) + "O".repeat(4 - parseInt(minutes % 5));
+      Constants.ACTIVE_YELLOW_COLOR.repeat(minutes % Constants.FIVE_BLOCK) +
+      Constants.OFF_COLOR.repeat(
+        Constants.FOUR_LAMPS - parseInt(minutes % Constants.FIVE_BLOCK)
+      );
 
     return lowerRowColors;
   };
