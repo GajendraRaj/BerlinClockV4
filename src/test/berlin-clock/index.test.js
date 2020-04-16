@@ -178,7 +178,7 @@ describe("Single Minutes Row functionality", () => {
   });
 
   it("should return OOOO for '00' minute", () => {
-    const hoursWrapper = wrapper.find(Minutes);
-    expect(hoursWrapper.props().minutes[1]).toEqual("OOOO");
+    const minutesWrapper = wrapper.find(Minutes);
+    expect(minutesWrapper.props().minutes[1]).toEqual("OOOO");
   });
 });
