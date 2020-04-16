@@ -244,4 +244,23 @@ describe("Entire Berlin Clock functionality", () => {
 
     expect(clockTime).toEqual("YRRROROOOYYRYYRYYRYOOOOO");
   });
+
+  it("should return ORROOROOOYYRYYRYOOOOYYOO for '11:37:01' time", () => {
+    const wrapper = shallow(<BerlinClock time={"11:37:01"} />);
+    const hoursWrapper = wrapper.find(Hours);
+    const minutesWrapper = wrapper.find(Minutes);
+    const secondsWrapper = wrapper.find(Seconds);
+
+    let clockTime;
+    const fiveHoursRow = hoursWrapper.props().hours[0];
+    const singleHoursRow = hoursWrapper.props().hours[1];
+    const fiveMinuteRow = minutesWrapper.props().minutes[0];
+    const singleMinuterow = minutesWrapper.props().minutes[1];
+    const second = secondsWrapper.props().seconds;
+
+    clockTime =
+      second + fiveHoursRow + singleHoursRow + fiveMinuteRow + singleMinuterow;
+
+    expect(clockTime).toEqual("ORROOROOOYYRYYRYOOOOYYOO");
+  });
 });
